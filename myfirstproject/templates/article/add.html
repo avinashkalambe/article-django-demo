@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+    Article | Add
+{% endblock title %}
+
+{% block content %}
+    <h3>Add New Article</h3>
+    <strong> {{message}} </strong>
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        Article Name : <input type="text" name = 'ar_name'/> <br><br>
+        Body Of Article : <textarea name='ar_body'></textarea> <br><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+    Article | Update
+{% endblock title %}
+
+{% block content %}
+    <h3>Update Article</h3>
+
+    <form action="{% url 'update' record.id %}" method="POST">
+        {% csrf_token %}
+        Article Name : <input type="text" name = 'ar_name' value="{{ record.name }}"/> <br><br>
+        Body Of Article : <textarea name='ar_body'>{{ record.body }}</textarea> <br><br>
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Article | Home
+{% endblock title %}
+
+
+{% block content %}
+    <link rel="stylsheet"  type="text/css" href="{% static '/css/home.css' %}" ></link>
+    <ul>
+    {% for record in records %}
+        <li> <a href={% url 'details' record.id %} > {{ record.name }} </a></li>    
+    {% endfor %}
+    </ul>
+{% endblock content %}

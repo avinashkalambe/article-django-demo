@@ -1,0 +1,17 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block content %}
+<h3>Welcome From Contact </h3>
+<p> {{ message }}</p>
+<form action="{% url 'contact' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

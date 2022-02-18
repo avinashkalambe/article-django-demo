@@ -1,0 +1,20 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+    Article | Details
+{% endblock title %}
+
+{% block content %}
+    <h2>{{ record.name }}</h2>
+    
+    {% if record.author.user.username %}
+        <p> By <a href="{% url 'detail_author' record.author.id %}"> {{ record.author.user.username }} </a></p>
+    {% else %}
+        <p> By Anonymous </p>
+    {% endif %}
+     <p> {{ record.body }} </p>  <br>
+     <p> Created At : {{ record.created_at }}</p> 
+     <p> Updated At : {{ record.updated_at }}</p>
+     <a href="{% url 'update' record.id %}"><button> Update Me</button></a>
+     <a href="{% url 'delete' record.id %}"><button> Delete Me</button></a>
+{% endblock content %}

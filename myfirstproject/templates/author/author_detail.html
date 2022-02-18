@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if object.profile_pic %}
+        <img src='{{ object.profile_pic.url }}' style="width: 100px; height: 100px;"></img>
+    {% else %}
+        <p>No Image</p>
+    {% endif %}
+    <h5>{{ object.user.username }}</h5>
+    <p>{{ object.user.email }}</p>
+    
+{% endblock %}
